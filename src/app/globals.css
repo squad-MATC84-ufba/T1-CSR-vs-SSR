@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+  --color-deep-blue: #1A2E40;
+  --color-subtle-gold: #D4AF37;
+  --color-light-gray: #E2E8F0;
+  --color-dark-gray: #334155;
+  --color-medium-gray: #64748B;
+  --color-text-on-dark: #F8FAFC;
+  --color-text-on-light: #1E293B;
+  --color-input-bg-dark: #2C3E50;
+  --color-input-bg-light: #F0F4F8;
+  --color-border-dark: #4A5568;
+  --color-border-light: #CBD5E1;
+  --color-placeholder-dark: #9cb894;
+  --color-placeholder-light: #6b8263;
 }
