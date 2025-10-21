@@ -96,15 +96,6 @@ export const SignUpForm: React.FC = () => {
         onChange={handleChange('fullName')}
         error={errors.fullName}
         required
-        onInvalid={(e) => {
-          e.preventDefault();
-          (e.target as HTMLInputElement).setCustomValidity(
-            'Por favor, preencha o nome completo'
-          );
-        }}
-        onInput={(e) => {
-          (e.target as HTMLInputElement).setCustomValidity('');
-        }}
       />
       
       <FormField
