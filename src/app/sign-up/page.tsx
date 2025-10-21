@@ -1,6 +1,6 @@
 // pages/SignUpPage.tsx
 import React from 'react';
-import { SignUpTemplate } from '../../../components/templates/SignUpTemplate';
+import { SignUpTemplate } from '@/components/templates/SignUpTemplate';
 
 const SignUpPage: React.FC = () => {
   return (
