@@ -5,7 +5,7 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
-  className?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -13,26 +13,38 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled = false,
   type = 'button',
-  className = '',
+  variant = 'primary',
 }) => {
+  const baseStyles = `
+    hover:cursor-pointer
+    w-full h-12 sm:h-14 rounded-lg font-bold
+    transition-all duration-300
+    focus:outline-none focus:ring-2 focus:ring-[var(--color-subtle-gold)]
+    disabled:opacity-50 disabled:cursor-not-allowed
+  `;
+
+  const variantStyles = {
+    primary: `
+      bg-[var(--color-subtle-gold)] text-[var(--color-deep-blue)]
+      hover:opacity-90
+    `,
+    secondary: `
+      bg-[var(--color-deep-blue)] text-white
+      hover:bg-opacity-90
+    `,
+    ghost: `
+      bg-transparent border-2 border-[var(--color-subtle-gold)]
+      text-[var(--color-subtle-gold)] hover:bg-[var(--color-subtle-gold)]
+      hover:text-[var(--color-deep-blue)]
+    `,
+  };
+
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`
-        w-full h-12 sm:h-14
-        rounded-lg
-        font-bold
-        transition-all duration-300
-        hover:opacity-90
-        focus:outline-none focus:ring-2 focus:ring-subtle-gold
-        bg-subtle-gold
-        text-deep-blue 
-        dark:bg-subtle-gold
-        dark:text-deep-blue
-        ${className}
-      `}
+      className={`${baseStyles} ${variantStyles[variant]}`}
     >
       {children}
     </button>
